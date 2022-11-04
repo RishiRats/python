@@ -1,0 +1,18 @@
+clc;
+close all;
+clear all;
+t=0:100;
+x=randn(1,length(t));
+subplot(2,1,1);
+plot(t,x);
+title('AWGN');
+rxx=xcorr(x);
+t1=t;
+t2=-fliplr(t);
+n1=min(t1)+min(t2);
+n2=max(t1)+max(t2);
+n=n1:1:n2;
+subplot(2,1,2);
+plot(n,rxx);
+title('Autocorrelation function of AWGN');
+grid on;
