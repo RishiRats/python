@@ -1,0 +1,25 @@
+#friss free space model
+clc;
+close all;
+clear all;
+pt=50;
+gt=1;
+gr=2;
+l=1;
+d=1000:1000:10000;
+f=900000000;
+lambda=(3*10.^8)/f;
+pr=(pt*gt*gr*(lambda.^2))./(((4*pi).^2)*(d.^2)*(l));
+disp(pr);
+prdbw=10*log10(pr);
+disp(prdbw);
+prdbm=prdbw+30;
+disp(prdbm);
+figure();
+plot(d,prdbw);
+hold on;
+plot(d,prdbm);
+legend("dbw","dbm");
+xlim([1000 10000]);
+xlabel("d");
+ylabel("pr(d)");
