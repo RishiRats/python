@@ -1,0 +1,27 @@
+#two ray model
+clc;
+close all;
+clear all;
+pt=50;
+gt=1;
+gr=2;
+l=1;
+ht=50;
+hr=1.5;
+d=1000:1000:10000;
+f=900000000;
+lambda=(3*10.^8)/f;
+pr=(pt*gt*gr*(ht.^2)*(hr.^2))./(d.^4);
+disp(pr);
+prdbw=10*log10(pr);
+disp(prdbw);
+prdbm=prdbw+30;
+disp(prdbm);
+figure();
+plot(d,prdbw);
+hold on;
+plot(d,prdbm);
+legend("dbw","dbm");
+xlim([1000 10000]);
+xlabel("d");
+ylabel("pr(d)");
